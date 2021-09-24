@@ -14,6 +14,9 @@ class Ball{
    fill(this.color);
    ellipse(this.x, this.y, this.w, this.h); 
    this.y = this.vy + this.y;
+
+   if(this.y > 625)
+     this.vy = 0;
   }
 } 
 
