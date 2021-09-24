@@ -13,6 +13,7 @@ class Ball{
   drawball() {
    fill(this.color);
    ellipse(this.x, this.y, this.w, this.h); 
+   this.y = this.vy + this.y;
   }
 } 
 
@@ -21,7 +22,7 @@ var ball1;
 function setup() {
   createCanvas(450, 650);
   
-  ball1 = new Ball(225, 625, 50, 50, 0, 0, "white");
+  ball1 = new Ball(225, 0, 50, 50, 0, 3, "white");
 }
 
 function draw() {
