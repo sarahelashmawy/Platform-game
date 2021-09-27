@@ -32,4 +32,16 @@ function draw() {
   background("grey");
 
   ball1.drawball();
+
+  
+  if (keyIsPressed) {
+   if (keyCode == RIGHT_ARROW) {
+    ball1.x +=5; 
+   }  else if (keyCode == LEFT_ARROW) {
+     ball1.x -= 5;
+   } else if (keyCode == UP_ARROW) {
+     ball1.y -= 5; 
+   } else if (keyCode == DOWN_ARROW) {
+     ball1.y +=5;} 
+  }
 }
