@@ -15,8 +15,15 @@ class Ball{
    ellipse(this.x, this.y, this.w, this.h); 
    this.y = this.vy + this.y;
 
-   if(this.y > 625)
-     this.vy = 0;
+   if(this.y > 650){
+     this.y = 0;
+   }
+
+   if(this.x > 450) {
+     this.x = 0;
+   }else if (this.x < 0) {
+     this.x = 450;
+   }
   }
 } 
 
@@ -25,7 +32,7 @@ var ball1;
 function setup() {
   createCanvas(450, 650);
   
-  ball1 = new Ball(225, 0, 50, 50, 0, 3, "white");
+  ball1 = new Ball(225, 0, 50, 50, 0, 5, "white");
 }
 
 function draw() {
@@ -33,7 +40,6 @@ function draw() {
 
   ball1.drawball();
 
-  
   if (keyIsPressed) {
    if (keyCode == RIGHT_ARROW) {
     ball1.x +=5; 
