@@ -28,10 +28,10 @@ class Ball{
   }
 } 
 
-class PLatform{
+class Platform{
 
   constructor(x, y, h, w, vx, vy, _color){
-    this.x = x;
+    this.x = random(350);
     this.y = y;
     this.w = w;
     this.h = h;
@@ -42,21 +42,20 @@ class PLatform{
 
   drawplatform() {
     fill(this.color);
-    rect(this.x, this.y, this.w, this.h)
-    this.y = this.vy + this.y;
+    rect(this.x, this.y, this.w, this.h);
   }
-
 }
 
 
-var ball1, platform1;
+var ball1, platform1, platform2;
 
 function setup() {
   createCanvas(450, 650);
   
-  ball1 = new Ball(225, 0, 50, 50, 1, 0.2, "white");
+  ball1 = new Ball(225, 0, 50, 50, 5, 1, "white");
 
-  platform1 = new PLatform(0, 300, 10, 200, 0, 0, "black");
+  platform1 = new Platform(0, 500, 10, 200, 0, 0, "black");
+  platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
   
 }
 
@@ -66,6 +65,7 @@ function draw() {
   ball1.drawball();
 
   platform1.drawplatform();
+  platform2.drawplatform();
 
   if (keyIsPressed) {
    if (keyCode == RIGHT_ARROW) {
