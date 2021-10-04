@@ -43,6 +43,7 @@ class Platform{
   drawplatform() {
     fill(this.color);
     rect(this.x, this.y, this.w, this.h);
+    this.y += 1;
   }
 }
 
@@ -66,6 +67,8 @@ function draw() {
 
   platform1.drawplatform();
   platform2.drawplatform();
+
+  
 
   if (keyIsPressed) {
    if (keyCode == RIGHT_ARROW) {
