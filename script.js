@@ -49,6 +49,7 @@ class Platform{
 
 
 var ball1, platform1, platform2;
+var gamestate = 0;
 
 function setup() {
   createCanvas(450, 650);
@@ -61,6 +62,24 @@ function setup() {
 }
 
 function draw() {
+ fill(0);
+
+ text("gamestate" + gamestate, 25, 25);
+
+ if (gamestate == 0) {
+   background("blue");
+ }
+
+ if (gamestate == 1) {
+   game();
+ }
+
+ if (gamestate == 2) {
+   gameover();
+ }
+}
+
+function game() {
   background("grey");
 
   ball1.drawball();
@@ -80,4 +99,5 @@ function draw() {
    } else if (keyCode == DOWN_ARROW) {
      ball1.y +=5;} 
   }
+
 }
