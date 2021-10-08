@@ -47,7 +47,6 @@ class Platform{
   }
 }
 
-
 var ball1, platform1, platform2;
 var gamestate = 0;
 
@@ -58,6 +57,7 @@ function setup() {
 
   platform1 = new Platform(0, 500, 10, 200, 0, 0, "black");
   platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
+
   
 }
 
@@ -67,7 +67,7 @@ function draw() {
  text("gamestate" + gamestate, 25, 25);
 
  if (gamestate == 0) {
-   background("blue");
+   menu();
  }
 
  if (gamestate == 1) {
@@ -79,8 +79,23 @@ function draw() {
  }
 }
 
+
+function menu() {
+ background("#BBF1F1");
+
+ textSize(60);
+ textFont("Rockwell");
+ textAlign(CENTER);
+ text("MENU", 210, 50);
+ 
+ textSize(25);
+ textFont("Rockwell");
+ textAlign(CENTER);
+ text("START GAME", 210, 150);
+}
+
 function game() {
-  background("grey");
+  background("#C09591");
 
   ball1.drawball();
 
