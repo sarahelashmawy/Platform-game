@@ -48,21 +48,30 @@ class Platform{
 }
 
 var ball1, platform1, platform2;
-var gamestate = 0;
+var gamestate = 1;
 
 function setup() {
   createCanvas(450, 650);
   
   ball1 = new Ball(225, 0, 50, 50, 5, 1, "white");
 
-  platform1 = new Platform(0, 500, 10, 200, 0, 0, "black");
-  platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
+   platform1 = new Platform(0, 500, 10, 200, 0, 0, "black");
+   platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
 
-  
 }
+
+var platforms
 
 function draw() {
  fill(0);
+
+   if(frameCount % 100 == 0){
+    platforms.push(new Platform());
+   }
+
+   platforms.forEach((p) => {
+    p.draw();
+   });
 
  text("gamestate" + gamestate, 25, 25);
 
