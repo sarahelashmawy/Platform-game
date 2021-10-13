@@ -62,9 +62,9 @@ function setup() {
 
 var platforms
 
-function draw() {
+function draw
  fill(0);
-
+ 
    if(frameCount % 100 == 0){
     platforms.push(new Platform());
    }
@@ -73,6 +73,9 @@ function draw() {
     p.draw();
    });
 
+
+
+   
  text("gamestate" + gamestate, 25, 25);
 
  if (gamestate == 0) {
