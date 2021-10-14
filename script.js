@@ -62,7 +62,7 @@ class Platform {
 }
 
 var ball, platform1, platform2;
-var gamestate = 1;
+var gamestate = 0;
 var platforms = [];
 
 function setup() {
@@ -78,7 +78,6 @@ function setup() {
 
 
 function draw() {
-
   text("gamestate" + gamestate, 25, 25);
 
   if (gamestate == 0) {
@@ -98,15 +97,17 @@ function draw() {
 function menu() {
   background("#BBF1F1");
 
-  textSize(60);
-  textFont("Rockwell");
-  textAlign(CENTER);
-  text("MENU", 210, 50);
-
   textSize(25);
   textFont("Rockwell");
   textAlign(CENTER);
-  text("START GAME", 210, 150);
+  text("PRESS ENTER TO START", 210, 150);
+
+  
+  if (keyIsPressed) {
+    if (keyCode === ENTER) {
+      gamestate = 1;
+    }
+  }
 }
 
 function game() {
