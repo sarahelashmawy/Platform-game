@@ -95,9 +95,10 @@ function draw() {
 
 
 function menu() {
-  background("#BBF1F1");
+  background("#58CCED");
 
   textSize(25);
+  fill(255);
   textFont("Rockwell");
   textAlign(CENTER);
   text("PRESS ENTER TO START", 210, 150);
@@ -111,7 +112,7 @@ function menu() {
 }
 
 function game() {
-  background("#C09591");
+  background("#941739");
 
   ball.drawball();
 
@@ -146,6 +147,7 @@ function gameover() {
   background("#d0b4dc");
 
   textSize(25);
+  fill(255);
   textFont("Rockwell");
   textAlign(CENTER);
   text("GAME OVER", 210, 150);
