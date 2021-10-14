@@ -17,7 +17,7 @@ class Ball {
     this.v = this.v + this.g;
 
     if (this.y > 650) {
-      this.v = -0.95 * this.v;
+      this.v = -0.5 * this.v;
     }
 
     if (this.x > 450) {
@@ -106,7 +106,7 @@ function menu() {
   if (keyIsPressed) {
     if (keyCode === ENTER) {
       gamestate = 1;
-    }
+    } 
   }
 }
 
@@ -123,8 +123,7 @@ function game() {
     p.drawPlatform();
     p.checkCollision();
   });
-
-
+  
 
   if (keyIsPressed) {
     if (keyCode == RIGHT_ARROW) {
@@ -137,5 +136,25 @@ function game() {
       ball.y += 5;
     }
   }
+ 
+  if (ball.y > 650) {
+    gamestate = 2;
+  }
+}
 
+function gameover() {
+  background("#d0b4dc");
+
+  textSize(25);
+  textFont("Rockwell");
+  textAlign(CENTER);
+  text("GAME OVER", 210, 150);
+  text("YOU LOSE", 210,175 );
+  text("TO PLAY AGAIN PRESS ENTER", 210, 250);
+
+  if (keyIsPressed) {
+    if (keyCode === ENTER) {
+      gamestate = 1;
+    } 
+  }
 }
