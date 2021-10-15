@@ -11,8 +11,9 @@ class Ball {
   }
 
   drawball() {
-    fill(this.color);
-    rect(this.x, this.y, this.w, this.h);
+    //fill(this.color);
+    //rect(this.x, this.y, this.w, this.h);
+    image(astro, this.x, this.y, 40, 60);
     this.y = this.v + this.y;
     this.v = this.v + this.g;
 
@@ -71,13 +72,16 @@ var highscore = 0;
 function preload(){
  gameimg = loadImage("Image/gameback.gif");
  begin = loadImage("Image/beginback.gif");
+ asteroid = loadImage("Image/asteroid.png");
+ astro = loadImage("Image/astronaut.png");
+
  type  = loadFont("Gamefonts/Cubic.otf");
 }
 
 function setup() {
   createCanvas(450, 650);
 
-  ball = new Ball(225, 0, 25, 25, 2, 0.2, "white");
+  ball = new Ball(225, 0, 25, 25, 2, 0.2,"white");
 
   platform1 = new Platform(400, 500, 10, 200, 0, 0, "black");
  // platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
