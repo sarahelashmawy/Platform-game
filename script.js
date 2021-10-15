@@ -75,7 +75,7 @@ function preload(){
 function setup() {
   createCanvas(450, 650);
 
-  ball = new Ball(225, 0, 25, 25, 2, 0.1, "white");
+  ball = new Ball(225, 0, 25, 25, 2, 0.2, "white");
 
   platform1 = new Platform(400, 500, 10, 200, 0, 0, "black");
  // platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
