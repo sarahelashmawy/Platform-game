@@ -108,7 +108,12 @@ function draw() {
   if (gamestate == 2) {
     gameover();
   }
+
+  if (gamestate == 3){
+    instructions();
+  }
 }
+
 
 
 function menu() {
@@ -121,13 +126,21 @@ function menu() {
   strokeWeight(4);
   textFont(type);
   textAlign(CENTER);
-  text("PRESS ENTER TO START", 210, 350);
+  text("MENU", 220, 200);
+
+  textSize(22);
+  text("PRESS ENTER TO START", 220, 275);
+  text("PRESS CONTROL TO VIEW THE INSTRUCTIONS", 220, 325);
+
+  text("HIGHSCORE: " + highscore, 220, 400);
 
   
   if (keyIsPressed) {
     if (keyCode === ENTER) {
       gamestate = 1;
-    } 
+    } else if (keyCode == CONTROL) {
+      gamestate = 3;
+    }
   }
 }
 
@@ -151,11 +164,7 @@ function game() {
       ball.x += 5;
     } else if (keyCode == LEFT_ARROW) {
       ball.x -= 5;
-    } //else if (keyCode == UP_ARROW) {
-      //ball.y -= 5;
-    //} //else if (keyCode == DOWN_ARROW) {
-      //ball.y += 5;
-    //}
+    } 
   }
  
   if (ball.y > 650) {
@@ -175,13 +184,14 @@ function gameover() {
   fill(255);
   textFont(type);
   textAlign(CENTER);
-  text("GAME OVER", 210, 175);
+  text("GAME OVER", 220, 175);
   
   textSize(25);
   fill(255);
-  text("SCORE: " + score, 210,275 );
-  text("HIGHSCORE: " + highscore, 210,300);
-  text("TO PLAY AGAIN PRESS ENTER", 210, 350);
+  text("SCORE: " + score, 220,275 );
+  text("HIGHSCORE: " + highscore, 220,300);
+  text("TO PLAY AGAIN PRESS ENTER", 220, 350);
+  text("TO RETURN TO MENU PRESS BACKSPACE", 220, 375);
 
   if (score > highscore){
     highscore = score;
@@ -192,6 +202,33 @@ function gameover() {
       gamestate = 1;
       ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");
       score = 0;
-    } 
+    } else if (keycode = BACKSPACE) {
+      gamestate = 0;
+
+    }
+  }
+}
+
+function instructions() {
+  background(begin);
+
+  textSize(30);
+  text("INSTRUCTIONS", 220, 150);
+
+  textSize(20);
+  text("1. USE THE LEFT AND RIGHT ARROW", 220, 200);
+  text("TO NAVIGATE THE ASTRONAUT", 220, 225);
+
+  text("2. DO NOT TOUCH THE GROUND IF YOU", 220, 275);
+  text("DO NOT WANT TO LOSE!", 220, 300);
+
+  text("3. MOST IMPORTANT IS TO ENJOY THE GAME!", 220, 350);
+
+  text("TO RETURN BACK TO THE MENU PRESS SHIFT", 220, 400);
+
+  if (keyIsPressed) {
+    if (keyCode === SHIFT) {
+      gamestate = 0;
+    }
   }
 }
