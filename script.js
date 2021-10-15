@@ -71,6 +71,7 @@ var highscore = 0;
 function preload(){
  cloud = loadImage("Image/cloud.jpg");
  begin = loadImage("Image/beginground.jpg");
+ type  = loadFont("Gamefonts/Cubic.otf");
 }
 
 function setup() {
@@ -109,11 +110,13 @@ function menu() {
  // background("#58CCED");
  background(begin);
 
-  textSize(25);
-  fill(255);
-  textFont("Rockwell");
+  textSize(35);
+  fill("#C1C1C1");
+  stroke(0);
+  strokeWeight(4);
+  textFont(type);
   textAlign(CENTER);
-  text("PRESS ENTER TO START", 210, 150);
+  text("PRESS ENTER TO START", 210, 350);
 
   
   if (keyIsPressed) {
@@ -162,11 +165,11 @@ function game() {
 function gameover() {
   background("#d0b4dc");
 
-  textSize(25);
+  textSize(30);
   fill(255);
-  textFont("Rockwell");
+  textFont(type);
   textAlign(CENTER);
-  text("GAME OVER", 210, 150);
+  text("GAME OVER", 210, 100);
   
   textSize(25);
   fill(255);
