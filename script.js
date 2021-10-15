@@ -67,6 +67,10 @@ var gamestate = 0;
 var platforms = [];
 var score = 0;
 
+function preload(){
+cloud = loadImage("Image/cloud.jpg");
+}
+
 function setup() {
   createCanvas(450, 650);
 
@@ -117,8 +121,8 @@ function menu() {
 }
 
 function game() {
-  background("#941739");
-
+  //background("#941739");
+  background(cloud);
   ball.drawball();
 
   if (frameCount % 100 == 0) {    
