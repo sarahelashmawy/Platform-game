@@ -66,6 +66,7 @@ var ball, platform1, platform2;
 var gamestate = 0;
 var platforms = [];
 var score = 0;
+var highscore = 0;
 
 function preload(){
  cloud = loadImage("Image/cloud.jpg");
@@ -166,8 +167,16 @@ function gameover() {
   textFont("Rockwell");
   textAlign(CENTER);
   text("GAME OVER", 210, 150);
-  text("YOU LOSE", 210,175 );
+  
+  textSize(25);
+  fill(255);
+  text("SCORE: " + score, 210,175 );
+  text("HIGHSCORE: " + highscore, 210,200);
   text("TO PLAY AGAIN PRESS ENTER", 210, 250);
+
+  if (score > highscore){
+    highscore = score;
+  }
 
   if (keyIsPressed) {
     if (keyCode === ENTER) {
