@@ -68,7 +68,8 @@ var platforms = [];
 var score = 0;
 
 function preload(){
-cloud = loadImage("Image/cloud.jpg");
+ cloud = loadImage("Image/cloud.jpg");
+ begin = loadImage("Image/beginground.jpg");
 }
 
 function setup() {
@@ -104,7 +105,8 @@ function draw() {
 
 
 function menu() {
-  background("#58CCED");
+ // background("#58CCED");
+ background(begin);
 
   textSize(25);
   fill(255);
