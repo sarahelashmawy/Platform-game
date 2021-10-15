@@ -69,8 +69,8 @@ var score = 0;
 var highscore = 0;
 
 function preload(){
- cloud = loadImage("Image/cloud.jpg");
- begin = loadImage("Image/beginground.jpg");
+ gameimg = loadImage("Image/gameback.gif");
+ begin = loadImage("Image/beginback.gif");
  type  = loadFont("Gamefonts/Cubic.otf");
 }
 
@@ -111,7 +111,7 @@ function menu() {
  background(begin);
 
   textSize(35);
-  fill("#C1C1C1");
+  fill(255);
   stroke(0);
   strokeWeight(4);
   textFont(type);
@@ -128,7 +128,7 @@ function menu() {
 
 function game() {
   //background("#941739");
-  background(cloud);
+  background(gameimg);
   ball.drawball();
 
   if (frameCount % 100 == 0) {    
@@ -163,19 +163,20 @@ function game() {
 }
 
 function gameover() {
-  background("#d0b4dc");
+  //background("#d0b4dc");
+  background(begin);
 
   textSize(30);
   fill(255);
   textFont(type);
   textAlign(CENTER);
-  text("GAME OVER", 210, 100);
+  text("GAME OVER", 210, 175);
   
   textSize(25);
   fill(255);
-  text("SCORE: " + score, 210,175 );
-  text("HIGHSCORE: " + highscore, 210,200);
-  text("TO PLAY AGAIN PRESS ENTER", 210, 250);
+  text("SCORE: " + score, 210,275 );
+  text("HIGHSCORE: " + highscore, 210,300);
+  text("TO PLAY AGAIN PRESS ENTER", 210, 350);
 
   if (score > highscore){
     highscore = score;
