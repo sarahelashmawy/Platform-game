@@ -17,7 +17,7 @@ class Ball {
     this.v = this.v + this.g;
 
     if (this.y > 650) {
-      this.v = -0.2 * this.v;
+      this.v = -0.1 * this.v;
     }
 
     if (this.x > 450) {
@@ -51,10 +51,11 @@ class Platform {
     if(ball.v > 0){
       
       // collide on y-axis
-      if(ball.y + ball.h > this.y){
-        
+      if(ball.y + ball.h > this.y){        
+
         if(ball.x + ball.w > this.x && ball.x < this.x + this.w){
           ball.v = ball.v * -1;
+          score++;
         }
       }
     }
@@ -64,11 +65,12 @@ class Platform {
 var ball, platform1, platform2;
 var gamestate = 0;
 var platforms = [];
+var score = 0;
 
 function setup() {
   createCanvas(450, 650);
 
-  ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");
+  ball = new Ball(225, 0, 25, 25, 2, 0.1, "white");
 
   platform1 = new Platform(400, 500, 10, 200, 0, 0, "black");
  // platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
@@ -144,6 +146,10 @@ function game() {
   if (ball.y > 650) {
     gamestate = 2;
   }
+
+ fill(255);
+ textSize(24);
+ text("Score: " + score, 60, 25 );  
 }
 
 function gameover() {
@@ -160,7 +166,8 @@ function gameover() {
   if (keyIsPressed) {
     if (keyCode === ENTER) {
       gamestate = 1;
-      ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");    
+      ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");
+      score = 0;
     } 
   }
 }
