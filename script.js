@@ -17,7 +17,7 @@ class Ball {
     this.v = this.v + this.g;
 
     if (this.y > 650) {
-      this.v = -0.5 * this.v;
+      this.v = -0.2 * this.v;
     }
 
     if (this.x > 450) {
@@ -68,10 +68,13 @@ var platforms = [];
 function setup() {
   createCanvas(450, 650);
 
-  ball = new Ball(225, 0, 25, 25, 5, 1, "white");
+  ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");
 
-  // platform1 = new Platform(0, 500, 10, 200, 0, 0, "black");
-  // platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
+  platform1 = new Platform(400, 500, 10, 200, 0, 0, "black");
+ // platform2 = new Platform(0, 300, 10, 200, 0, 0, "black");
+
+  platforms.push(platform1);
+  //platforms.push(platform2);
 
 }
 
@@ -131,11 +134,11 @@ function game() {
       ball.x += 5;
     } else if (keyCode == LEFT_ARROW) {
       ball.x -= 5;
-    } else if (keyCode == UP_ARROW) {
-      ball.y -= 5;
-    } else if (keyCode == DOWN_ARROW) {
-      ball.y += 5;
-    }
+    } //else if (keyCode == UP_ARROW) {
+      //ball.y -= 5;
+    //} //else if (keyCode == DOWN_ARROW) {
+      //ball.y += 5;
+    //}
   }
  
   if (ball.y > 650) {
@@ -157,6 +160,7 @@ function gameover() {
   if (keyIsPressed) {
     if (keyCode === ENTER) {
       gamestate = 1;
+      ball = new Ball(225, 0, 25, 25, 1, 0.3, "white");    
     } 
   }
 }
