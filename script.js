@@ -41,8 +41,9 @@ class Platform {
   }
 
   drawPlatform() {
-    fill(this.color);
-    rect(this.x, this.y, this.w, this.h);
+    //fill(this.color);
+    //rect(this.x, this.y, this.w, this.h);
+    image(asteroid, this.x, this.y, 150, 50);
     this.y += this.vy;
   }
 
